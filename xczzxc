@@ -1,0 +1,105 @@
+cp = str(input("Ingrese el código postal del lugar de destino: "))
+direccion = input("Dirección del lugar de destino: ")
+tipo = int(input("Tipo de envío (id entre 0 y 6): "))
+pago = int(input("Forma de pago (1: efectivo - 2: tarjeta): "))
+
+pais_destino = 0
+provincia = 0
+argentina = "Argentina"
+bolivia = "Bolivia"
+brasil = "Brasil"
+chile = "Chile"
+paraguay = "Paraguay"
+uruguay = "Uruguay"
+montevideo = "Uruguay"
+reg89 = "Brasil"
+reg0123 = "Brasil"
+reg4567 = "Brasil"
+precio = 0
+
+if tipo == 0:
+    precio = 1100
+elif tipo == 1:
+    precio = 1800
+elif tipo == 2:
+    precio = 2450
+elif tipo == 3:
+    precio = 8300
+elif tipo == 4:
+    precio = 10900
+elif tipo == 5:
+    precio = 14300
+elif tipo == 6:
+    precio = 17900
+if len(cp) == 8:
+    pais_destino = argentina
+    if cp[0] == "B":
+        provincia = "Buenos Aires"
+    elif cp[0] == "K":
+        provincia = "Catamarca"
+    elif cp[0] == "H":
+        provincia = "Chaco"
+    elif cp[0] == "U":
+        provincia = "Chubut"
+    elif cp[0] == "C":
+        provincia = "Ciudad Autónoma de Buenos Aires"
+    elif cp[0] == "X":
+        provincia = "Córdoba"
+    elif cp[0] == "W":
+        provincia = "Corrientes"
+    elif cp[0] == "E":
+        provincia = "Entre Ríos"
+    elif cp[0] == "P":
+        provincia = "Formosa"
+    elif cp[0] == "Y":
+        provincia = "Jujuy"
+    elif cp[0] == "L":
+        provincia = "La Pampa"
+    elif cp[0] == "F":
+        provincia = "La Rioja"
+    elif cp[0] == "M":
+        provincia = "Mendoza"
+    elif cp[0] == "N":
+        provincia = "Misiones"
+    elif cp[0] == "Q":
+        provincia = "Neuquén"
+    elif cp[0] == "R":
+        provincia = "Río Negro"
+    elif cp[0] == "A":
+        provincia = "Salta"
+    elif cp[0] == "J":
+        provincia = "San Juan"
+    elif cp[0] == "D":
+        provincia = "San Luis"
+    elif cp[0] == "Z":
+        provincia = "Santa Cruz"
+    elif cp[0] == "S":
+        provincia = "Santa Fe"
+    elif cp[0] == "G":
+        provincia = "Santiago del Estero"
+    elif cp[0] == "V":
+        provincia = "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
+    elif cp[0] == "T":
+        provincia = "Tucumán"
+    else:
+        provincia = "No existe"
+elif len(cp) == 4:
+    pais_destino = bolivia
+elif len(cp) == 9:
+    pais_destino = brasil
+    if cp[0] == (8, 9):
+        pais_destino == reg89
+    elif cp[0] == (0, 1, 2, 3):
+        pais_destino = reg0123
+    else:
+        pais_destino = reg4567
+elif len(cp) == 7:
+    pais_destino = chile
+elif len(cp) == 6:
+    pais_destino = paraguay
+elif len(cp) == 5:
+    pais_destino = uruguay
+    if cp[0] == 1:
+        pais_destino = montevideo
+    else:
+        pais_destino = uruguay
